@@ -53,97 +53,162 @@ class _MyAppState extends State<MyApp> {
             ),
             Row(
               children: [
+                Expanded(
+                child:
                 ElevatedButton(
                   onPressed: () {
                     adicionarValor('7');
                   },
                   child: const Text('7'),
                 ),
+                ),
+                Expanded(
+                child:
                 ElevatedButton(
                   onPressed: () {
                     adicionarValor('8');
                   },
                   child: const Text('8'),
                 ),
+                ),
+                Expanded(
+                child:
                 ElevatedButton(
                   onPressed: () {
                     adicionarValor('9');
                   },
                   child: const Text('9'),
                 ),
+                ),
+                Expanded(
+                child:
                 ElevatedButton(onPressed: () {operador = '*';
                 numero1 = int.tryParse(visor);
-                limparVisor();}, child: const Text('*')),
+                limparVisor();}, child: const Text('*')
+                ),
+                ),
               ],
             ),
             Row(
               children: [
+                Expanded(
+                child:
                 ElevatedButton(
                   onPressed: () {
                     adicionarValor('4');
                   },
                   child: const Text('4'),
                 ),
+                ),
+                Expanded(
+                child:
                 ElevatedButton(
                   onPressed: () {
                     adicionarValor('5');
                   },
                   child: const Text('5'),
                 ),
+                ),
+                Expanded(
+                child:
                 ElevatedButton(
                   onPressed: () {
                     adicionarValor('6');
                   },
                   child: const Text('6'),
                 ),
+                ),
+                Expanded(
+                child:
                 ElevatedButton(onPressed: () {operador = '-';
                 numero1 = int.tryParse(visor);
-                limparVisor();}, child: const Text('-')),
+                limparVisor();}, child: const Text('-')
+                ),
+                ),
               ],
             ),
             Row(
               children: [
+                Expanded(
+                child:
                 ElevatedButton(
                   onPressed: () {
                     adicionarValor('1');
                   },
                   child: const Text('1'),
                 ),
+                ),
+                Expanded(
+                child:
                 ElevatedButton(
                   onPressed: () {
                     adicionarValor('2');
                   },
                   child: const Text('2'),
                 ),
+                ),
+                Expanded(
+                child:
                 ElevatedButton(
                   onPressed: () {
                     adicionarValor('3');
                   },
                   child: const Text('3'),
                 ),
+                ),
+                Expanded(
+                child:
                 ElevatedButton(onPressed: () {
                 operador = '+';
                 numero1 = int.tryParse(visor);
                 limparVisor();
                 },
-                 child: const Text('+')),
+                 child: const Text('+')
+                 ),
+                 ),
               ],
             ),
             Row(
               children: [
+                Expanded(
+                child:
                 ElevatedButton(
                   onPressed: () {
                     adicionarValor('0');
                   },
                   child: const Text('0'),
+                ),
+                ),
+                Expanded(
+                child:
+                ElevatedButton(
+                  onPressed: () {
+                    limparVisor();
+                  },
+                  child: const Text("C"),
+                ),
+                ),
+                Expanded(
+                child: ElevatedButton(
+                  onPressed: () {
+                    apagarUltimo();
+                  },
+                  child: const Text("⌫"),
+                ),
+                ),
+                Expanded(
+                child:
+                ElevatedButton(onPressed: () {operador = '/';
+                numero1 = int.tryParse(visor);
+                limparVisor();}, child: const Text('/')
+                ),
                 ),                             
               ],
             ),
             Row(
               children: [
-                ElevatedButton(onPressed: () {operador = '/';
-                numero1 = int.tryParse(visor);
-                limparVisor();}, child: const Text('/')),
+                Expanded(
+                child:
                 ElevatedButton(onPressed: () {
                   numero2 = int.tryParse(visor);
                   final calculadora = Calculadora(numero1!, numero2!);
@@ -166,19 +231,8 @@ class _MyAppState extends State<MyApp> {
                     visor = resultado.toString();
                   });
                 }, child: const Text('=')
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    limparVisor();
-                  },
-                  child: const Text("C"),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    apagarUltimo();
-                  },
-                  child: const Text("⌫"),
-                ),
+                ),   
+                ),                           
               ],
             ),
           ],
