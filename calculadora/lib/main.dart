@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'valor.dart';
+import 'botao.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,199 +43,148 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text('Calculadora') , centerTitle: true,),
+        appBar: AppBar(title: const Text('Calculadora'), centerTitle: true),
         body: Column(
-          children: [ 
+          children: [
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(16),
               color: Colors.black,
-              child: Text(visor, textAlign: TextAlign.end , style: const TextStyle(fontSize: 40 , color: Colors.white)
+              child: Text(
+                visor,
+                textAlign: TextAlign.end,
+                style: const TextStyle(fontSize: 40, color: Colors.white),
               ),
-              ),
-        
+            ),
             Row(
               children: [
-                Expanded(
-                child:
-                ElevatedButton(
+                Botao(
+                  texto: '7',
+                  onPressed: () => adicionarValor('7'),
+                ),
+                Botao(
+                  texto: '8',
+                  onPressed: () => adicionarValor('8'),
+                ),
+                Botao(
+                  texto: '9',
+                  onPressed: () => adicionarValor('9'),
+                ),
+                Botao(
+                  texto: '*',
                   onPressed: () {
-                    adicionarValor('7');
+                    operador = '*';
+                      numero1 = int.tryParse(visor);
+                      limparVisor();
                   },
-                  child: const Text('7'),
-                ),
-                ),
-                Expanded(
-                child:
-                ElevatedButton(
-                  onPressed: () {
-                    adicionarValor('8');
-                  },
-                  child: const Text('8'),
-                ),
-                ),
-                Expanded(
-                child:
-                ElevatedButton(
-                  onPressed: () {
-                    adicionarValor('9');
-                  },
-                  child: const Text('9'),
-                ),
-                ),
-                Expanded(
-                child:
-                ElevatedButton(onPressed: () {operador = '*';
-                numero1 = int.tryParse(visor);
-                limparVisor();}, child: const Text('*')
-                ),
                 ),
               ],
             ),
             Row(
               children: [
-                Expanded(
-                child:
-                ElevatedButton(
+                Botao(
+                  texto: '4',
+                  onPressed: () => adicionarValor('4'),
+                ),
+                Botao(
+                  texto: '5',
+                  onPressed: () => adicionarValor('5'),
+                ),
+                Botao(
+                  texto: '6',
+                  onPressed: () => adicionarValor('6'),
+                ),
+                Botao(
+                  texto: '-',
                   onPressed: () {
-                    adicionarValor('4');
+                    operador = '-';
+                      numero1 = int.tryParse(visor);
+                      limparVisor();
                   },
-                  child: const Text('4'),
-                ),
-                ),
-                Expanded(
-                child:
-                ElevatedButton(
-                  onPressed: () {
-                    adicionarValor('5');
-                  },
-                  child: const Text('5'),
-                ),
-                ),
-                Expanded(
-                child:
-                ElevatedButton(
-                  onPressed: () {
-                    adicionarValor('6');
-                  },
-                  child: const Text('6'),
-                ),
-                ),
-                Expanded(
-                child:
-                ElevatedButton(onPressed: () {operador = '-';
-                numero1 = int.tryParse(visor);
-                limparVisor();}, child: const Text('-')
-                ),
                 ),
               ],
             ),
             Row(
               children: [
-                Expanded(
-                child:
-                ElevatedButton(
+                Botao(
+                  texto: '1',
+                  onPressed: () => adicionarValor('1'),
+                ),
+                Botao(
+                  texto: '2',
+                  onPressed: () => adicionarValor('2'),
+                ),
+                Botao(
+                  texto: '3',
+                  onPressed: () => adicionarValor('3'),          
+                ),
+                Botao(
+                  texto: "+",
                   onPressed: () {
-                    adicionarValor('1');
+                    operador = '+';
+                      numero1 = int.tryParse(visor);
+                      limparVisor();
                   },
-                  child: const Text('1'),
                 ),
-                ),
-                Expanded(
-                child:
-                ElevatedButton(
-                  onPressed: () {
-                    adicionarValor('2');
-                  },
-                  child: const Text('2'),
-                ),
-                ),
-                Expanded(
-                child:
-                ElevatedButton(
-                  onPressed: () {
-                    adicionarValor('3');
-                  },
-                  child: const Text('3'),
-                ),
-                ),
-                Expanded(
-                child:
-                ElevatedButton(onPressed: () {
-                operador = '+';
-                numero1 = int.tryParse(visor);
-                limparVisor();
-                },
-                 child: const Text('+')
-                 ),
-                 ),
               ],
             ),
             Row(
               children: [
-                Expanded(
-                child:
-                ElevatedButton(
-                  onPressed: () {
-                    adicionarValor('0');
-                  },
-                  child: const Text('0'),
+                Botao(
+                  texto: '0',
+                  onPressed: () => adicionarValor('0'),
                 ),
-                ),
-                Expanded(
-                child:
-                ElevatedButton(
+                Botao(
+                  texto: "C",
                   onPressed: () {
                     limparVisor();
                   },
-                  child: const Text("C"),
                 ),
-                ),
-                Expanded(
-                child: ElevatedButton(
+
+                Botao(
+                  texto: "⌫",
                   onPressed: () {
                     apagarUltimo();
                   },
-                  child: const Text("⌫"),
                 ),
+
+                Botao(
+                  texto: "/",
+                  onPressed: () {
+                    operador = '/';
+                    numero1 = int.tryParse(visor);
+                    limparVisor();
+                  },
                 ),
-                Expanded(
-                child:
-                ElevatedButton(onPressed: () {operador = '/';
-                numero1 = int.tryParse(visor);
-                limparVisor();}, child: const Text('/')
-                ),
-                ),                             
               ],
             ),
             Row(
               children: [
-                Expanded(
-                child:
-                ElevatedButton(onPressed: () {
-                  numero2 = int.tryParse(visor);
-                  final calculadora = Calculadora(numero1!, numero2!);
-                  num resultado = 0;
-                  switch(operador){
-                    case '+':
-                      resultado = calculadora.somar();
-                      break;
-                    case '-':
-                      resultado = calculadora.subtrair();
-                      break;
-                    case '*':
-                      resultado = calculadora.multiplicar();
-                      break;
-                    case '/':
-                      resultado = calculadora.dividir();
-                      break;
-                  }
-                  setState(() {
-                    visor = resultado.toString();
-                  });
-                }, child: const Text('=')
-                ),   
-                ),                           
+                Botao(
+                  texto: "=",
+                    onPressed: () {
+                      numero2 = int.tryParse(visor);
+                      final calculadora = Calculadora(numero1!, numero2!);
+                      num resultado = 0;
+                      switch (operador) {
+                        case '+':
+                          resultado = calculadora.somar();
+                          break;
+                        case '-':
+                          resultado = calculadora.subtrair();
+                          break;
+                        case '*':
+                          resultado = calculadora.multiplicar();
+                          break;
+                        case '/':
+                          resultado = calculadora.dividir();
+                          break;
+                      }
+                      setState(() {
+                        visor = resultado.toString();
+                      });
+                    }, 
+                  ),
               ],
             ),
           ],
