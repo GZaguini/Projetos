@@ -17,5 +17,4 @@ class Calculadora{
   int multiplicar() {
     return numero1 * numero2;
   }
-
 }

@@ -15,13 +15,12 @@ class Botao extends StatelessWidget {
     Color cor = Colors.grey;
     if(texto == '+'|| texto == '-' || texto == '*' || texto == '/'){
           cor = Colors.orange;
-        }else if(texto == 'C'){
-          cor = Colors.red;
+        }else if(texto == 'C'|| texto == '⌫'){
+          cor = Colors.blueGrey;
         }else if(texto == '='){
           cor = Colors.green;
-        }else if(texto == '⌫'){
-          cor = Colors.yellow;
-        }else{
+        }
+        else{
           cor = Colors.grey;
         }
     return Expanded(
