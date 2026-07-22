@@ -48,9 +48,11 @@ class _MyAppState extends State<MyApp> {
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(16),
-              color: Colors.blue[200],
-              child: Text(visor, textAlign: TextAlign.end , style: const TextStyle(fontSize: 40) ),
-            ),
+              color: Colors.black,
+              child: Text(visor, textAlign: TextAlign.end , style: const TextStyle(fontSize: 40 , color: Colors.white)
+              ),
+              ),
+        
             Row(
               children: [
                 Expanded(
