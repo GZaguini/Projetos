@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'valor.dart';
 import 'botao.dart';
+import 'visor.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,16 +47,9 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(title: const Text('Calculadora'), centerTitle: true),
         body: Column(
           children: [
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(16),
-              color: Colors.black,
-              child: Text(
-                visor,
-                textAlign: TextAlign.end,
-                style: const TextStyle(fontSize: 40, color: Colors.white),
-              ),
-            ),
+           Visor(
+  texto: visor,
+),
             Row(
               children: [
                 Botao(
