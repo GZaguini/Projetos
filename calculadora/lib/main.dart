@@ -42,14 +42,14 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text('Calculadora')),
+        appBar: AppBar(title: const Text('Calculadora') , centerTitle: true,),
         body: Column(
-          children: [
+          children: [ 
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(16),
               color: Colors.blue[200],
-              child: Text(visor, textAlign: TextAlign.end),
+              child: Text(visor, textAlign: TextAlign.end , style: const TextStyle(fontSize: 40) ),
             ),
             Row(
               children: [
