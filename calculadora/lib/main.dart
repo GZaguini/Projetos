@@ -28,19 +28,33 @@ class _MyAppState extends State<MyApp> {
   }
 
   void limparVisor() {
-    setState(() {
-      visor = '';
-      conta = '';
-    });
-  }
+  setState(() {
+    visor = "";
+    conta = "";
+    numero1 = null;
+    numero2 = null;
+    operador = "";
+  });
+}
 
-  void apagarUltimo() {
+void apagarUltimo() {
   setState(() {
     if (visor.isNotEmpty) {
       visor = visor.substring(0, visor.length - 1);
     } else if (conta.isNotEmpty) {
-      conta = conta.substring(0, conta.length - 1);
+      conta = "";
+      visor = numero1.toString();
+      operador = "";
     }
+  });
+}
+
+void selecionarOperador(String op) {
+  setState(() {
+    operador = op;
+    numero1 = int.tryParse(visor);
+    conta = visor + op;
+    visor = "";
   });
 }
 
@@ -59,15 +73,7 @@ class _MyAppState extends State<MyApp> {
                 Botao(texto: '9', onPressed: () => adicionarValor('9')),
                 Botao(
                   texto: '*',
-                  onPressed: () {
-                    setState(() {
-                      operador = '*';
-                      numero1 = int.tryParse(visor);
-                      conta = visor + operador!;
-                      visor = "";
-                    });
-                    // limparVisor();
-                  },
+                  onPressed: () => selecionarOperador("*"),
                 ),
               ],
             ),
@@ -78,14 +84,7 @@ class _MyAppState extends State<MyApp> {
                 Botao(texto: '6', onPressed: () => adicionarValor('6')),
                 Botao(
                   texto: '-',
-                  onPressed: () {
-                    setState(() {
-                      operador = '-';
-                      numero1 = int.tryParse(visor);
-                      conta = visor + operador!;
-                      visor = "";
-                    });
-                  },
+                 onPressed: () => selecionarOperador("-"),
                 ),
               ],
             ),
@@ -96,14 +95,7 @@ class _MyAppState extends State<MyApp> {
                 Botao(texto: '3', onPressed: () => adicionarValor('3')),
                 Botao(
                   texto: "+",
-                  onPressed: () {
-                    setState(() {
-                      operador = '+';
-                      numero1 = int.tryParse(visor);
-                      conta = visor + operador!;
-                      visor = "";
-                    });
-                  },
+                  onPressed: () => selecionarOperador("+"),
                 ),
               ],
             ),
@@ -121,20 +113,16 @@ class _MyAppState extends State<MyApp> {
                   texto: "⌫",
                   onPressed: () {
                     apagarUltimo();
+                    conta = "";
+                    visor = numero1.toString();
+                    operador = "";
                   },
                 ),
 
                 Botao(
-                  texto: "/",
-                  onPressed: () {
-                    setState(() {
-                      operador = '/';
-                      numero1 = int.tryParse(visor);
-                      conta = visor + operador!;
-                      visor = "";
-                    });
-                  },
-                ),
+  texto: "⌫",
+  onPressed: apagarUltimo,
+),
               ],
             ),
             Row(
