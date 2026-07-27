@@ -1,17 +1,29 @@
-# calculadora
+﻿# Calculadora Flutter
 
-A new Flutter project.
+Uma calculadora desenvolvida em Flutter para praticar os conceitos básicos de Dart e Flutter.
 
-## Getting Started
+## Demonstração
 
-This project is a starting point for a Flutter application.
+<img width="504" height="557" alt="calculadora" src="https://github.com/user-attachments/assets/c3a40675-653d-4361-ab58-6918d4b333c0" />
 
-A few resources to get you started if this is your first Flutter project:
+## Funcionalidades
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+* Soma
+* Subtração
+* Multiplicação
+* Divisão
+* Limpar visor
+* Apagar último caractere
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tecnologias
+
+* Flutter
+* Dart
+
+## Objetivo
+
+Este projeto foi desenvolvido com o objetivo de praticar a criação de interfaces, gerenciamento de estado com `setState()` e orientação a objetos em Flutter.
+
+## Autor
+
+**Guilherme Zaguini**
