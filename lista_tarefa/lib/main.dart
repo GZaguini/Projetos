@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'tarefa.dart';
 import 'campo_tarefa.dart';
+import 'item_tarefa.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,11 +28,7 @@ class _MyAppState extends State<MyApp> {
     }
 
     setState(() {
-      tarefas.add(
-        Tarefa(
-          titulo: tarefaController.text,
-        ),
-      );
+      tarefas.add(Tarefa(titulo: tarefaController.text));
 
       tarefaController.clear();
     });
@@ -48,52 +45,26 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             CampoTarefa(
-  controller: tarefaController,
-  onPressed: adicionarTarefa,
-),
+              controller: tarefaController,
+              onPressed: adicionarTarefa,
+            ),
 
             Expanded(
               child: ListView.builder(
                 itemCount: tarefas.length,
                 itemBuilder: (context, index) {
-                  final tarefa = tarefas[index];
-
-                  return ListTile(
-                    // Checkbox
-                    leading: Checkbox(
-                      value: tarefa.concluida,
-                      onChanged: (novoValor) {
-                        setState(() {
-                          tarefa.concluida = novoValor ?? false;
-                        });
-                      },
-                    ),
-
-                    // Nome da tarefa
-                    title: Text(
-                      tarefa.titulo,
-                      style: TextStyle(
-                        decoration: tarefa.concluida
-                            ? TextDecoration.lineThrough
-                            : TextDecoration.none,
-                        color: tarefa.concluida
-                            ? Colors.grey
-                            : Colors.black,
-                      ),
-                    ),
-
-                    // Botão de excluir
-                    trailing: IconButton(
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          tarefas.removeAt(index);
-                        });
-                      },
-                    ),
+                  return ItemTarefa(
+                    tarefa: tarefas[index],
+                    onAlterar: (valor) {
+                      setState(() {
+                        tarefas[index].concluida = valor;
+                      });
+                    },
+                    onExcluir: () {
+                      setState(() {
+                        tarefas.removeAt(index);
+                      });
+                    },
                   );
                 },
               ),
