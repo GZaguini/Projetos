@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
 
   // Lista que armazena todas as tarefas
   List<Tarefa> tarefas = [];
-  
+
   /// Executado quando a tela é criada
   /// Carrega as tarefas salvas no celular
   @override
@@ -96,9 +96,13 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.grey.shade100,
         appBar: AppBar(
-          title: const Text('Lista de Tarefas'),
-          centerTitle: true,
+          title: const Text('Lista de Tarefas', style: TextStyle(fontWeight: FontWeight.bold,
+           ),
+           ),
+           centerTitle: true,
+           elevation: 2,
         ),
 
         body: Column(

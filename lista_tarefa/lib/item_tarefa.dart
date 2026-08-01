@@ -15,7 +15,17 @@ class ItemTarefa extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
+    return  Card(
+      margin: const EdgeInsets.symmetric(
+        horizontal: 12,
+        vertical: 6,
+      ),
+      elevation: 3,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+    
+    child:ListTile(
       leading: Checkbox(
         value: tarefa.concluida,
         onChanged: (novoValor) {
@@ -37,6 +47,8 @@ class ItemTarefa extends StatelessWidget {
         icon: const Icon(Icons.delete, color: Colors.red),
         onPressed: onExcluir,
       ),
+    )
     );
   }
 }
+ 
