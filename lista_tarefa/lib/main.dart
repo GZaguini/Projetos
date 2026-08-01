@@ -17,12 +17,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // Lista que armazena todas as tarefas
-  List<Tarefa> tarefas = [];
+  
 
   // Controller responsável pelo campo de texto
   final TextEditingController tarefaController = TextEditingController();
 
+  // Lista que armazena todas as tarefas
+  List<Tarefa> tarefas = [];
+  
   /// Executado quando a tela é criada
   /// Carrega as tarefas salvas no celular
   @override
@@ -68,7 +70,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   /// Adiciona uma nova tarefa
-  void adicionarTarefa() {
+  Future<void> adicionarTarefa() async {
     // Não permite adicionar tarefa vazia
     if (tarefaController.text.trim().isEmpty) {
       return;
@@ -86,12 +88,13 @@ class _MyAppState extends State<MyApp> {
     });
 
     // Salva a nova lista
-    salvarTarefas();
+    await salvarTarefas();
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Lista de Tarefas'),
@@ -117,21 +120,21 @@ class _MyAppState extends State<MyApp> {
                     tarefa: tarefas[index],
 
                     // Marca ou desmarca a tarefa
-                    onAlterar: (valor) {
+                    onAlterar: (valor) async {
                       setState(() {
                         tarefas[index].concluida = valor;
                       });
 
-                      salvarTarefas();
+                      await salvarTarefas();
                     },
 
                     // Remove a tarefa
-                    onExcluir: () {
+                    onExcluir: () async {
                       setState(() {
                         tarefas.removeAt(index);
                       });
 
-                      salvarTarefas();
+                       await salvarTarefas();
                     },
                   );
                 },
