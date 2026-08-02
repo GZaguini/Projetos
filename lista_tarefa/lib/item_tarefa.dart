@@ -7,11 +7,13 @@ class ItemTarefa extends StatelessWidget {
     required this.tarefa,
     required this.onAlterar,
     required this.onExcluir,
+    required this.onEditar,
   });
 
   final Tarefa tarefa;
   final ValueChanged<bool> onAlterar;
   final VoidCallback onExcluir;
+  final VoidCallback onEditar;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class ItemTarefa extends StatelessWidget {
       ),
     
     child:ListTile(
+      onTap: onEditar,
       leading: Checkbox(
         value: tarefa.concluida,
         onChanged: (novoValor) {
